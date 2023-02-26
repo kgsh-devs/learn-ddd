@@ -1,22 +1,31 @@
-class Cliente {
+import Endereco from "../value-object/endereco";
+
+export class Cliente {
   _id: string;
   _nome: string;
-  _endereco: string;
+  _endereco!: Endereco;
   _ativo: boolean;
 
-  constructor(id: string, nome: string, endereco: string) {
+  constructor(id: string, nome: string) {
     this._id = id;
     this._nome = nome;
-    this._endereco = endereco;
     this._ativo = true;
     this.validar();
   }
 
+  get id(): string {
+    return this._id;
+  }
+
+  get nome(): string {
+    return this._nome;
+  }  
+
   validar() {
     if (this._nome.length === 0)
-      throw new Error('O Nome deve ser informado');
+      throw new Error('Nome é requerido');
     if (this._id.length === 0)
-      throw new Error('O Id deve ser informado');
+      throw new Error('Id é requerido');
   }
 
   alterarNome(nome: string) {
@@ -24,9 +33,21 @@ class Cliente {
     this.validar()
   }
 
+  get Endereco(): Endereco {
+    return this._endereco;
+  }
+  
+  alterarEndereco(endereco: Endereco) {
+    this._endereco = endereco;
+  }
+
+  estaAtivo(): boolean {
+    return this._ativo;
+  }
+
   ativar() {
-    if (this._endereco.length === 0)
-      throw new Error('O Endereço deve ser informado');
+    if (this._endereco === undefined)
+      throw new Error('Endereco é requerido para ativar o Cliente');
     this._ativo = true;
   }
 
