@@ -4,11 +4,11 @@ export default class Endereco {
   _cep: string = "";
   _cidade: string = "";
 
-  constructor(street: string, number: number, zip: string, city: string) {
-    this._logradouro = street;
-    this._numero = number;
-    this._cep = zip;
-    this._cidade = city;
+  constructor(logradouro: string, numero: number, cep: string, cidade: string) {
+    this._logradouro = logradouro;
+    this._numero = numero;
+    this._cep = cep;
+    this._cidade = cidade;
 
     this.validar();
   }
@@ -31,16 +31,16 @@ export default class Endereco {
   
   validar() {
     if (this._logradouro.length === 0) {
-      throw new Error("Logradouro é obrigatório");
+      throw new Error("Logradouro é requerido");
     }
     if (this._numero === 0) {
-      throw new Error("Numero é obrigatório");
+      throw new Error("Numero é requerido");
     }
     if (this._cep.length === 0) {
-      throw new Error("Cep é obrigatório");
+      throw new Error("Cep é requerido");
     }
     if (this._cidade.length === 0) {
-      throw new Error("Cidade é obrigatório");
+      throw new Error("Cidade é requerido");
     }
   }
 
