@@ -23,9 +23,9 @@ export class Cliente {
 
   validar() {
     if (this._nome.length === 0)
-      throw new Error('Nome é requerido');
+      throw new Error('nome é requerido');
     if (this._id.length === 0)
-      throw new Error('Id é requerido');
+      throw new Error('id é requerido');
   }
 
   alterarNome(nome: string) {
@@ -33,7 +33,7 @@ export class Cliente {
     this.validar()
   }
 
-  get Endereco(): Endereco {
+  get endereco(): Endereco {
     return this._endereco;
   }
   
@@ -47,7 +47,7 @@ export class Cliente {
 
   ativar() {
     if (this._endereco === undefined)
-      throw new Error('Endereco é requerido para ativar o Cliente');
+      throw new Error('endereco é requerido para ativar o Cliente');
     this._ativo = true;
   }
 
