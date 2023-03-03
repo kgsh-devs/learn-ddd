@@ -20,6 +20,12 @@ describe('Pedido - unit tests', () => {
     }).toThrowError('itens é requerido');
   });
 
+  it('deve validar pedido', () => {
+    const item = new ItemDoPedido('i1', 'Item 1', 100, 'p1', 2);
+    const pedido = new Pedido('o1', 'c1', [item]);
+    expect(pedido.validar()).toBeTruthy;
+  });
+
   it('deve calcular total', () => {
     const item1 = new ItemDoPedido('i1', 'Item 1', 100, 'p1', 2);
     const item2 = new ItemDoPedido('i2', 'Item 2', 200, 'p2', 2);
