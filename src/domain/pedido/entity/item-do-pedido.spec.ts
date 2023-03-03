@@ -21,4 +21,13 @@ describe('Item do Pedido - unit tests', () => {
       const item = new ItemDoPedido('i1', 'Item 1', 100, 'p1', 0);
     }).toThrowError('quantidade deve ser maior que 0');
   });
+  it('deve validar o item do pedido', () => {
+    const item = new ItemDoPedido('i1', 'Item 1', 200, 'p1', 432);
+    expect(item.validar()).toBeTruthy;
+  });
+  it('deve calcular o total do item', () => {
+    const item = new ItemDoPedido('i1', 'Item 1', 2, 'p1', 5);
+    expect(item.totalDoItem).toBe(10);
+  });
+
 });

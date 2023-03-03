@@ -36,9 +36,6 @@ export class Pedido {
     if (this._itens.length === 0) {
       throw new Error("itens é requerido");
     }
-    if (this._itens.some((item) => item.quantidade <= 0)) {
-      throw new Error("quantidade deve ser maior que 0");
-    }
     return true;
   }
 
