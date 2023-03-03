@@ -1,8 +1,8 @@
 export default class Endereco {
-  _logradouro: string = "";
-  _numero: number = 0;
-  _cep: string = "";
-  _cidade: string = "";
+  private _logradouro: string = "";
+  private _numero: number = 0;
+  private _cep: string = "";
+  private _cidade: string = "";
 
   constructor(logradouro: string, numero: number, cep: string, cidade: string) {
     this._logradouro = logradouro;

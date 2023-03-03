@@ -35,8 +35,8 @@ describe('Cliente - unit tests', () => {
 
   it('deve ativar o cliente', () => {
     const cliente = new Cliente('1', 'cliente 1');
-    const address = new Endereco('Street 1', 123, '13330-250', 'São Paulo');
-    cliente.alterarEndereco(address);
+    const endereco = new Endereco('Street 1', 123, '13330-250', 'São Paulo');
+    cliente.alterarEndereco(endereco);
 
     cliente.ativar();
 
