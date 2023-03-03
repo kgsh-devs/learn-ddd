@@ -17,12 +17,20 @@ describe('Cliente - unit tests', () => {
   it('deve alterar o nome', () => {
     // Arrange
     const cliente = new Cliente('123', 'John');
-
     // Act
     cliente.alterarNome('Jane');
-
     // Assert
     expect(cliente.nome).toBe('Jane');
+  });
+
+  it('deve alterar o endereco', () => {
+    // Arrange
+    const cliente = new Cliente('123', 'John');
+    // Act
+    const endereco = new Endereco('Rua Xyz', 123, '86100-000', 'Londrina');
+    cliente.alterarEndereco(endereco);
+    // Assert
+    expect(cliente.endereco).toEqual(endereco);
   });
 
   it('deve ativar o cliente', () => {
