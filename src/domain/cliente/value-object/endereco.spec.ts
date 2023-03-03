@@ -20,5 +20,12 @@ describe('Endereco - unit tests', () => {
     expect(() => {
       let endereco = new Endereco('Rua Xyz', 123, '86100-000', '');
     }).toThrowError('Cidade é requerido');
-  });  
+  });
+  it('deve criar o endereco', () => {
+    const endereco = new Endereco('Street 1', 123, '13330-250', 'São Paulo');
+    expect(endereco.logradouro).toBe('Street 1');
+    expect(endereco.numero).toBe(123);
+    expect(endereco.cep).toBe('13330-250');
+    expect(endereco.cidade).toBe('São Paulo');
+  });
 });
