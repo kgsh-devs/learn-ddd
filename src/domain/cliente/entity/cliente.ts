@@ -1,10 +1,11 @@
-import Endereco from "../value-object/endereco";
+import Endereco from '../value-object/endereco';
 
 export class Cliente {
-  _id: string;
-  _nome: string;
-  _endereco!: Endereco;
-  _ativo: boolean;
+  private _id: string;
+  private _nome: string;
+  private _endereco!: Endereco;
+  private _ativo: boolean;
+  private _pontosFidelidade: number = 0;  
 
   constructor(id: string, nome: string) {
     this._id = id;
@@ -19,7 +20,11 @@ export class Cliente {
 
   get nome(): string {
     return this._nome;
-  }  
+  }
+
+  get pontosFidelidade(): number {
+    return this._pontosFidelidade;
+  }
 
   validar() {
     if (this._nome.length === 0)
@@ -53,5 +58,9 @@ export class Cliente {
 
   inativar() {
     this._ativo = false;
+  }
+
+  adicionarPontosFidelidade(pontos: number) {
+    this._pontosFidelidade += pontos;
   }
 }
