@@ -1,5 +1,5 @@
 import Endereco from '../value-object/endereco';
-import { Cliente } from './cliente';
+import Cliente from '../entity/cliente';
 
 describe('Cliente - unit tests', () => {
   it('deve gerar erro quando id for vazio', () => {

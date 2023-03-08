@@ -1,6 +1,6 @@
 import Endereco from '../value-object/endereco';
 
-export class Cliente {
+export default class Cliente {
   private _id: string;
   private _nome: string;
   private _endereco!: Endereco;
