@@ -34,13 +34,13 @@ export default class Produto {
 
   validar(): boolean {
     if (this._id.length === 0) {
-      throw new Error("id é requerido");
+      throw new Error('id é requerido');
     }
     if (this._nome.length === 0) {
-      throw new Error("nome é requerido");
+      throw new Error('nome é requerido');
     }
     if (this._preco < 0) {
-      throw new Error("preco deve ser >= 0");
+      throw new Error('preco deve ser >= 0');
     }
     return true;
   }
