@@ -50,12 +50,23 @@ describe('Cliente - unit tests', () => {
     }).toThrowError('endereco é requerido para ativar o Cliente');
   });
 
-  it('deve inaivar o cliente', () => {
+  it('deve inativar o cliente', () => {
     const cliente = new Cliente('1', 'cliente 1');
 
     cliente.inativar();
 
     expect(cliente.estaAtivo()).toBe(false);
   });
+
+  it("deve adicionar pontos do programa de fidelidade", () => {
+    const cliente = new Cliente("1", "Customer 1");
+    expect(cliente.pontosFidelidade).toBe(0);
+
+    cliente.adicionarPontosFidelidade(10);
+    expect(cliente.pontosFidelidade).toBe(10);
+
+    cliente.adicionarPontosFidelidade(10);
+    expect(cliente.pontosFidelidade).toBe(20);
+  });  
 
 });
