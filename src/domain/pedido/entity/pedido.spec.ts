@@ -1,5 +1,5 @@
-import { ItemDoPedido } from './item-do-pedido';
-import { Pedido } from './pedido';
+import ItemDoPedido from './item-do-pedido';
+import Pedido from './pedido';
 
 describe('Pedido - unit tests', () => {
   it('deve gerar erro quando id for vazio', () => {

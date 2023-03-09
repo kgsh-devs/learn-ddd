@@ -1,4 +1,4 @@
-export class ItemDoPedido {
+export default class ItemDoPedido {
   private _id: string;
   private _idProduto: string;
   private _nome: string;
