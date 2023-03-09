@@ -1,6 +1,6 @@
-import { ItemDoPedido } from "./item-do-pedido";
+import ItemDoPedido from "./item-do-pedido";
 
-export class Pedido {
+export default class Pedido {
   private _id: string;
   private _idCliente: string;
   private _itens: ItemDoPedido[];
