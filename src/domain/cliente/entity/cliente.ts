@@ -41,7 +41,11 @@ export default class Cliente {
   get endereco(): Endereco {
     return this._endereco;
   }
-  
+
+  set endereco(endereco: Endereco) {
+    this._endereco = endereco;
+  }  
+
   alterarEndereco(endereco: Endereco) {
     this._endereco = endereco;
   }
