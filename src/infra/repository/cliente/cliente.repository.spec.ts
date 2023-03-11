@@ -53,9 +53,9 @@ describe('cliente - repository test', () => {
 
     cliente.alterarNome('Customer 2');
     await clienteRepository.update(cliente);
-    const customerModel = await ClienteModel.findOne({ where: { id: '123' } });
+    const clienteModel = await ClienteModel.findOne({ where: { id: '123' } });
 
-    expect(customerModel.toJSON()).toStrictEqual({
+    expect(clienteModel.toJSON()).toStrictEqual({
       id: '123',
       nome: cliente.nome,
       ativo: cliente.estaAtivo(),
