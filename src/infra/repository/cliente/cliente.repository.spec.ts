@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 import Cliente from '../../../domain/cliente/entity/cliente';
 import Endereco from '../../../domain/cliente/value-object/endereco';
 import ClienteModel from './cliente.model';
-import ClienteRepository from './cliente-repository';
+import ClienteRepository from './cliente.repository';
 
 describe('cliente - repository test', () => {
   let sequelize: Sequelize;

@@ -11,8 +11,8 @@ import ClienteModel from '../cliente/cliente.model';
 import PedidoModel from './pedido.model';
 import ItemPedidoModel from './item.model';
 
-import ProdutoRepository from '../produto/produto-repository';
-import ClienteRepository from '../cliente/cliente-repository';
+import ProdutoRepository from '../produto/produto.repository';
+import ClienteRepository from '../cliente/cliente.repository';
 import PedidoRepository from './pedido.repository';
 
 describe('Pedido - repository test', () => {

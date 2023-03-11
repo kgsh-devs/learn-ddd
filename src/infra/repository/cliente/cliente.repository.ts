@@ -1,7 +1,7 @@
 import Cliente from '../../../domain/cliente/entity/cliente';
 import Endereco from '../../../domain/cliente/value-object/endereco';
 import ClienteModel from './cliente.model';
-import ClienteRepositoryInterface from '../../../domain/cliente/repository/cliente-repository.interface';
+import ClienteRepositoryInterface from '../../../domain/cliente/repository/cliente.repository.interface';
 
 export default class ClienteRepository implements ClienteRepositoryInterface {
   async create(entity: Cliente): Promise<void> {

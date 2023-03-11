@@ -1,6 +1,6 @@
 import Produto from '../../../domain/produto/entity/produto';
 import ProdutoModel from './produto.model';
-import ProdutoRepositoryInterface from '../../../domain/produto/repository/produto-repository.interface';
+import ProdutoRepositoryInterface from '../../../domain/produto/repository/produto.repository.interface';
 
 export default class ProdutoRepository implements ProdutoRepositoryInterface {
   async create(entity: Produto): Promise<void> {
