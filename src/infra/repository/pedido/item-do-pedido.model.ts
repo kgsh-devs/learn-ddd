@@ -13,7 +13,7 @@ import PedidoModel from './pedido.model';
   tableName: 'itens_pedido',
   timestamps: false,
 })
-export default class PedidoItemModel extends Model {
+export default class ItemDoPedidoModel extends Model {
   @PrimaryKey
   @Column
   declare id: string;
