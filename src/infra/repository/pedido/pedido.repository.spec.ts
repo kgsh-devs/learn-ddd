@@ -9,7 +9,7 @@ import ItemDoPedido from '../../../domain/pedido/entity/item-do-pedido';
 import ProdutoModel from '../produto/produto.model';
 import ClienteModel from '../cliente/cliente.model';
 import PedidoModel from './pedido.model';
-import ItemPedidoModel from './item.model';
+import ItemPedidoModel from './item-do-pedido.model';
 
 import ProdutoRepository from '../produto/produto.repository';
 import ClienteRepository from '../cliente/cliente.repository';

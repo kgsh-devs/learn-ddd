@@ -1,6 +1,6 @@
 import Pedido from '../../../domain/pedido/entity/pedido';
 import PedidoModel from './pedido.model';
-import ItemModel from './item.model';
+import ItemModel from './item-do-pedido.model';
 
 export default class PedidoRepository {
   async create(entity: Pedido): Promise<void> {

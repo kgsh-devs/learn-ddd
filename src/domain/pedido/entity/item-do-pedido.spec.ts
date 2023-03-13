@@ -3,12 +3,12 @@ import ItemDoPedido from './item-do-pedido';
 describe('Item do Pedido - unit tests', () => {
   it('deve gerar erro quando id for vazio', () => {
     expect(() => {
-      let order = new ItemDoPedido('', 'produto x', 3, 'prod-01', 100);
+      let item = new ItemDoPedido('', 'produto x', 3, 'prod-01', 100);
     }).toThrowError('id é requerido');
   });
   it('deve gerar erro quando idProduto for vazio', () => {
     expect(() => {
-      let order = new ItemDoPedido('it-001', 'produto x', 3, '', 100);
+      let item = new ItemDoPedido('it-001', 'produto x', 3, '', 100);
     }).toThrowError('idProduto é requerido');
   });
   it('deve gerar erro se o preco <= 0', () => {

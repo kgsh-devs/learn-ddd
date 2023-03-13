@@ -4,19 +4,19 @@ import Pedido from './pedido';
 describe('Pedido - unit tests', () => {
   it('deve gerar erro quando id for vazio', () => {
     expect(() => {
-      let order = new Pedido('', '123', []);
+      let pedido = new Pedido('', '123', []);
     }).toThrowError('id é requerido');
   });
 
   it('deve gerar erro quando idCliente for vazio', () => {
     expect(() => {
-      let order = new Pedido('123', '', []);
+      let pedido = new Pedido('123', '', []);
     }).toThrowError('idCliente é requerido');
   });
 
   it('deve gerar erro quando itens for vazio', () => {
     expect(() => {
-      let order = new Pedido('123', '123', []);
+      let pedido = new Pedido('123', '123', []);
     }).toThrowError('itens é requerido');
   });
 
@@ -42,7 +42,7 @@ describe('Pedido - unit tests', () => {
   it('deve gerar erro se a quantidade do item <= 0', () => {
     expect(() => {
       const item = new ItemDoPedido('i1', 'Item 1', 100, 'p1', 0);
-      const order = new Pedido('o1', 'c1', [item]);
+      const pedido = new Pedido('o1', 'c1', [item]);
     }).toThrowError('quantidade deve ser maior que 0');
   });
 });
