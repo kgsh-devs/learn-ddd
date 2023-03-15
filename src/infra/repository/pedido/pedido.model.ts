@@ -8,7 +8,7 @@ import {
   HasMany,
 } from 'sequelize-typescript';
 import ClienteModel from '../cliente/cliente.model';
-import ItemModel from './item-do-pedido.model';
+import ItemDoPedidoModel from './item-do-pedido.model';
 
 @Table({
   tableName: 'pedidos',
@@ -26,8 +26,8 @@ export default class PedidoModel extends Model {
   @BelongsTo(() => ClienteModel)
   declare cliente: ClienteModel;
 
-  @HasMany(() => ItemModel)
-  declare items: ItemModel[];
+  @HasMany(() => ItemDoPedidoModel)
+  declare itens: ItemDoPedidoModel[];
 
   @Column({ allowNull: false })
   declare total: number;

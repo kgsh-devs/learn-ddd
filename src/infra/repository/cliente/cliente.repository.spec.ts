@@ -23,7 +23,7 @@ describe('cliente - repository test', () => {
     await sequelize.close();
   });
 
-  it('deve crair um cliente', async () => {
+  it('deve criar um cliente', async () => {
     const clienteRepository = new ClienteRepository();
     const cliente = new Cliente('123', 'Customer 1');
     const endereco = new Endereco('Street 1', 1, 'Zipcode 1', 'City 1');

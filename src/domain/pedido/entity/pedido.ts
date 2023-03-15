@@ -6,10 +6,10 @@ export default class Pedido {
   private _itens: ItemDoPedido[];
   private _total: number;
 
-  constructor(id: string, idCliente: string, items: ItemDoPedido[]) {
+  constructor(id: string, idCliente: string, itens: ItemDoPedido[]) {
     this._id = id;
     this._idCliente = idCliente;
-    this._itens = items;
+    this._itens = itens;
     this._total = this.total();
     this.validar();
   }
@@ -22,7 +22,7 @@ export default class Pedido {
     return this._idCliente;
   }
 
-  get items(): ItemDoPedido[] {
+  get itens(): ItemDoPedido[] {
     return this._itens;
   }
 
