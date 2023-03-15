@@ -25,6 +25,19 @@ export default class PedidoRepository implements PedidoRepositoryInterface {
     );
   }
 
+  async update(entity: Pedido): Promise<void> {
+    await PedidoModel.update(
+      {
+        idCliente: entity.idCliente,
+      },
+      {
+        where: {
+          id: entity.id,
+        },
+      }
+    );
+  }
+
   async get(id: string): Promise<Pedido> {
     let pedidoModel;
     try {
@@ -69,7 +82,4 @@ export default class PedidoRepository implements PedidoRepositoryInterface {
     return itens
   }
 
-  update(entity: Pedido): Promise<void> {
-    throw new Error('Method not implemented.');
-  }
 }

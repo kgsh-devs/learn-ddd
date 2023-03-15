@@ -105,6 +105,13 @@ describe('Pedido - repository test', () => {
     expect(pedido.idCliente).toEqual(cliente.id);
   });
 
+  it('deve gerar um erro quando cliente não é encontrado', async () => {
+    const pedidoRepository = new PedidoRepository();
+    expect(async () => {
+      await pedidoRepository.get('idQualqueDeCliente');
+    }).rejects.toThrow('Pedido não encontrado');
+  });  
+
   it('deve encontrar todos os pedidos', async () => {
     const pedidoRepository = new PedidoRepository();
 
@@ -124,6 +131,22 @@ describe('Pedido - repository test', () => {
 
     const pedidosResult = await pedidoRepository.getAll();
     expect(pedidosResult.length).toBeGreaterThan(1);
+  });
+
+  it('deve alterar um pedido', async () => {
+    const cliente = await criarCliente('cli-005', 'Cliente 005');
+    const produto = await criarProduto('prod-005', 'Produto 005', 150);
+    const pedido = await criarPedidoComUmItem(cliente, produto, 'ped-005');
+    const pedidoModel = await PedidoModel.findOne({
+      where: { id: pedido.id },
+      include: ['itens'],
+    });
+    expect(pedidoModel.idCliente).toBe(cliente.id);
+
+    const outroCliente = await criarCliente('cli-006', 'Cliente 006');
+    pedido.alterarCliente('cli-006');
+    const pedidoRepository = new PedidoRepository();
+    pedidoRepository.update(pedido);
   });
 
 });
