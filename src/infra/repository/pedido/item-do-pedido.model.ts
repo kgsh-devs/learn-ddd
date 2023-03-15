@@ -18,6 +18,7 @@ export default class ItemDoPedidoModel extends Model {
   @Column
   declare id: string;
 
+  @PrimaryKey
   @ForeignKey(() => ProdutoModel)
   @Column({ allowNull: false })
   declare idProduto: string;
@@ -29,8 +30,8 @@ export default class ItemDoPedidoModel extends Model {
   @Column({ allowNull: false })
   declare idPedido: string;
 
-  @BelongsTo(() => PedidoModel)
-  declare pedido: ProdutoModel;
+  // @BelongsTo(() => PedidoModel)
+  // declare pedido: PedidoModel;
 
   @Column({ allowNull: false })
   declare quantidade: number;
