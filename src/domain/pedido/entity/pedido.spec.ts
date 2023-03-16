@@ -54,4 +54,14 @@ describe('Pedido - unit tests', () => {
       pedido.inserirItem(itemDoMesmoProduto);
     }).toThrowError('produto já existe no pedido');
   });
+
+  it('deve remover um item do pedido', () => {
+    const item1 = new ItemDoPedido('i1', 'Item 1', 100, 'p1', 1);
+    const item2 = new ItemDoPedido('i2', 'Item 2', 100, 'p2', 1);
+    const pedido = new Pedido('o1', 'c1', [item1, item2]);
+    expect(pedido.itens.length).toEqual(2);
+    pedido.removerItem('i1');
+    expect(pedido.itens.length).toEqual(1);
+  });
+
 });

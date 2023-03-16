@@ -13,10 +13,11 @@ export default class PedidoRepository implements PedidoRepositoryInterface {
         total: entity.total(),
         itens: entity.itens.map((item) => ({
           id: item.id,
+          idProduto: item.idProduto,
+          idPedido: entity.id,
+          quantidade: item.quantidade,
           nome: item.nome,
           preco: item.preco,
-          idProduto: item.idProduto,
-          quantidade: item.quantidade,
         })),
       },
       {
@@ -36,6 +37,18 @@ export default class PedidoRepository implements PedidoRepositoryInterface {
         },
       }
     );
+    entity.itens.forEach(async (item) => {
+      ItemDoPedidoModel.update(
+        {
+          idProduto: item.idProduto,
+          idPedido: entity.id,
+          quantidade: item.quantidade,
+          nome: item.nome,
+          preco: item.preco,
+        },
+        { where: { id: item.id }}
+      )
+    });
   }
 
   async get(id: string): Promise<Pedido> {

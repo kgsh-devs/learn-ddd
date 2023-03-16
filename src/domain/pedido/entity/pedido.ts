@@ -48,12 +48,32 @@ export default class Pedido {
     this.validar();
   }
 
+  alterarItem(item: ItemDoPedido): void {
+    const index = this.itens.findIndex((i) => i.id == item.id);
+    if (index == -1)
+      throw new Error('item não encontrado no pedido');
+    else {
+      this._itens[index] = item;
+      this.validar();
+    }
+  }
+
   inserirItem(item: ItemDoPedido): void {
-    const itemNaLista = this.itens.find((i)=>i.idProduto == item.idProduto);
+    const itemNaLista = this.itens.find((i) => i.idProduto == item.idProduto);
     if (itemNaLista != undefined)
       throw new Error('produto já existe no pedido');
     else {
       this._itens.push(item);
+      this.validar();
+    }
+  }
+
+  removerItem(idItem: string): void {
+    const index = this.itens.findIndex((i) => i.id == idItem);
+    if (index == -1)
+      throw new Error('item não encontrado no pedido');
+    else {
+      this._itens.splice(index, 1);
       this.validar();
     }
   }
