@@ -5,6 +5,8 @@ import {
   Column,
   ForeignKey,
   BelongsTo,
+  Index,
+  IsUUID,
 } from 'sequelize-typescript';
 import ProdutoModel from '../produto/produto.model';
 import PedidoModel from './pedido.model';
@@ -14,11 +16,15 @@ import PedidoModel from './pedido.model';
   timestamps: false,
 })
 export default class ItemDoPedidoModel extends Model {
+  @IsUUID(4)
   @PrimaryKey
   @Column
   declare id: string;
 
-  @PrimaryKey
+  @Index({
+    name: 'unique-index',
+    unique: true,
+  })
   @ForeignKey(() => ProdutoModel)
   @Column({ allowNull: false })
   declare idProduto: string;
@@ -26,6 +32,10 @@ export default class ItemDoPedidoModel extends Model {
   @BelongsTo(() => ProdutoModel)
   declare produto: ProdutoModel;
 
+  @Index({
+    name: 'unique-index',
+    unique: true,
+  })
   @ForeignKey(() => PedidoModel)
   @Column({ allowNull: false })
   declare idPedido: string;

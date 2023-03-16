@@ -1,4 +1,4 @@
-import ItemDoPedido from "./item-do-pedido";
+import ItemDoPedido from './item-do-pedido';
 
 export default class Pedido {
   private _id: string;
@@ -28,18 +28,53 @@ export default class Pedido {
 
   validar(): boolean {
     if (this._id.length === 0) {
-      throw new Error("id é requerido");
+      throw new Error('id é requerido');
     }
     if (this._idCliente.length === 0) {
-      throw new Error("idCliente é requerido");
+      throw new Error('idCliente é requerido');
     }
     if (this._itens.length === 0) {
-      throw new Error("itens é requerido");
+      throw new Error('itens é requerido');
     }
     return true;
   }
 
   total(): number {
     return this._itens.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
+  }
+
+  alterarCliente(idCliente: string): void {
+    this._idCliente = idCliente;
+    this.validar();
+  }
+
+  alterarItem(item: ItemDoPedido): void {
+    const index = this.itens.findIndex((i) => i.id == item.id);
+    if (index == -1)
+      throw new Error('item não encontrado no pedido');
+    else {
+      this._itens[index] = item;
+      this.validar();
+    }
+  }
+
+  inserirItem(item: ItemDoPedido): void {
+    const itemNaLista = this.itens.find((i) => i.idProduto == item.idProduto);
+    if (itemNaLista != undefined)
+      throw new Error('produto já existe no pedido');
+    else {
+      this._itens.push(item);
+      this.validar();
+    }
+  }
+
+  removerItem(idItem: string): void {
+    const index = this.itens.findIndex((i) => i.id == idItem);
+    if (index == -1)
+      throw new Error('item não encontrado no pedido');
+    else {
+      this._itens.splice(index, 1);
+      this.validar();
+    }
   }
 }
